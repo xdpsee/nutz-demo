@@ -1,6 +1,6 @@
 package demo.hello;
 
-import demo.hello.bean.User;
+import demo.hello.data.po.User;
 import org.nutz.dao.Dao;
 import org.nutz.dao.util.Daos;
 import org.nutz.integration.quartz.NutQuartzCronJobFactory;
@@ -17,8 +17,7 @@ public class MainSetup implements Setup {
         Ioc ioc = config.getIoc();
         Dao dao = ioc.get(Dao.class);
 
-        Daos.createTablesInPackage(dao, "demo.hello", false);
-
+        Daos.createTablesInPackage(dao, "demo.hello.data.po", false);
 
         if (dao.count(User.class) == 0) {
             User user = new User();

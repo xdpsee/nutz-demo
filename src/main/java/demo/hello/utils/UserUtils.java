@@ -1,6 +1,6 @@
 package demo.hello.utils;
 
-import demo.hello.bean.User;
+import demo.hello.data.po.User;
 import org.nutz.dao.Cnd;
 import org.nutz.dao.Dao;
 import org.nutz.lang.Strings;

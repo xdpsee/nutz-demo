@@ -1,13 +1,15 @@
 package demo.hello.module;
 
-import demo.hello.bean.User;
-import demo.hello.bean.UserProfile;
+import demo.hello.data.po.User;
+import demo.hello.data.po.UserProfile;
 import demo.hello.utils.UserUtils;
 import org.nutz.aop.interceptor.ioc.TransAop;
 import org.nutz.dao.Cnd;
+import org.nutz.dao.Dao;
 import org.nutz.dao.QueryResult;
 import org.nutz.dao.pager.Pager;
 import org.nutz.ioc.aop.Aop;
+import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.lang.Strings;
 import org.nutz.lang.util.NutMap;
@@ -22,7 +24,10 @@ import java.util.Date;
 @Ok("json:{locked:'password|salt',ignoreNull:true}")
 @Fail("http:500")
 @Filters(@By(type=CheckSession.class, args={"me", "/"}))
-public class UserModule extends BaseModule {
+public class UserModule {
+
+    @Inject
+    protected Dao dao;
 
     @At("/")
     @Ok("jsp:jsp.user.list")

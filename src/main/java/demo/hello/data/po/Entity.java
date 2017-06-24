@@ -1,4 +1,4 @@
-package demo.hello.bean;
+package demo.hello.data.po;
 
 import lombok.Data;
 import org.nutz.dao.entity.annotation.Column;
@@ -6,12 +6,12 @@ import org.nutz.dao.entity.annotation.Column;
 import java.util.Date;
 
 @Data
-public class BasePOJO {
+public class Entity {
 
-    @Column("ct")
+    @Column("gmt_create")
     private Date createTime;
 
-    @Column("ut")
+    @Column("gmt_modified")
     private Date updateTime;
 
 }

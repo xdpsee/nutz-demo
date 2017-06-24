@@ -1,10 +1,12 @@
 package demo.hello.module;
 
-import demo.hello.bean.UserProfile;
+import demo.hello.data.po.UserProfile;
+import org.nutz.dao.Dao;
 import org.nutz.dao.DaoException;
 import org.nutz.dao.FieldFilter;
 import org.nutz.dao.util.Daos;
 import org.nutz.img.Images;
+import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.Mvcs;
 import org.nutz.mvc.Scope;
@@ -26,7 +28,10 @@ import java.util.Date;
 @IocBean
 @At("/user/profile")
 @Filters(@By(type=CheckSession.class, args={"me", "/"})) // 检查当前Session是否带me这个属性
-public class UserProfileModule extends BaseModule {
+public class UserProfileModule {
+
+    @Inject
+    protected Dao dao;
 
     @At("/")
     @GET

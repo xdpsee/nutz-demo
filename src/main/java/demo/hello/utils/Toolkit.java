@@ -1,6 +1,6 @@
 package demo.hello.utils;
 
-import demo.hello.bean.User;
+import demo.hello.data.po.User;
 import org.nutz.lang.Lang;
 import org.nutz.lang.random.R;
 import org.nutz.lang.util.NutMap;
